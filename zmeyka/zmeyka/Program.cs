@@ -10,19 +10,25 @@ namespace zmeyka
     {
         static void Main(string[] args)
         {
-            int x1 = 1;
-            int y1 = 3;
-            char sym1 = '*';
-            Console.SetCursorPosition(x1, y1);
-            Console.Write(sym1);
+            Point p1 = new Point();
+            p1.x = 1;
+            p1.y = 3;
+            p1.sym = '*';
+            p1.Draw();
 
-            int x2 = 3;
-            int y2 = 6;
-            char sym2 = '*';
-            Console.SetCursorPosition(x2, y2);
-            Console.Write(sym2);
+
+            Point p2 = new Point();
+            p2.x = 3;
+            p2.y = 6;
+            p2.sym = '*';
+            p2.Draw();
+
+
+
 
             Console.ReadLine();
         }
+
     }
 }
+
