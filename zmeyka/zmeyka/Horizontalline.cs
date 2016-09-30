@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace zmeyka
 {
-    class Horizontalline
+    class Horizontalline : Figure
     {
-        List<Point> pList;
+        
         public Horizontalline(int xLeft, int xRight, int y, char sym)
   
         {
@@ -24,12 +24,6 @@ namespace zmeyka
                 
         }
 
-        public void Drow()
-        {
-            foreach (Point p in pList)
-        {
-            p.Draw();
-        }
-     }
+    
    }
 }
