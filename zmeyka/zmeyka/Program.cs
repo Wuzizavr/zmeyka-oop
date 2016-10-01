@@ -36,19 +36,25 @@ namespace zmeyka
             Snake snake = new Snake(p, 5, Direction.RIGHT);
 
             snake.Drow();
-            snake.Move();
 
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
-            snake.Move();
-            Thread.Sleep(300);
+            while(true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.Handlekey(key.Key);
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
+            
+
+
+
+
+
+
+            Thread.Sleep(100);
             snake.Move();
 
 

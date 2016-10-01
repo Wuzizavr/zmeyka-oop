@@ -13,13 +13,13 @@ namespace zmeyka
         {
             direction = _direction;
             pList = new List<Point>();
-            for (int i = 0;  i < length; i++)
+            for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
                 p.Move(i, direction);
                 pList.Add(p);
             }
-                  
+
         }
 
         internal void Move()
@@ -32,12 +32,24 @@ namespace zmeyka
             tail.Clear();
             head.Draw();
         }
-                public Point GetNextPosition()
-        {    
-                Point head = pList.Last();
-                Point nextPoint = new Point(head);
-                nextPoint.Move(1, direction);
-                return nextPoint;
+        public Point GetNextPosition()
+        {
+            Point head = pList.Last();
+            Point nextPoint = new Point(head);
+            nextPoint.Move(1, direction);
+            return nextPoint;
+        }
+        public void Handlekey(ConsoleKey key)
+            {
+                     if (key == ConsoleKey.LeftArrow)
+                        direction = Direction.LEFT;
+                    if (key == ConsoleKey.RightArrow)
+                        direction = Direction.RIGHT;
+                    if (key == ConsoleKey.UpArrow)
+                        direction = Direction.UP;
+                    if (key == ConsoleKey.DownArrow)
+                        direction = Direction.DOWN;
+            
     
     }
 }
