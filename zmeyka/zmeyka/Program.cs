@@ -37,34 +37,36 @@ namespace zmeyka
 
             snake.Drow();
 
+            
+            {
+            FoodCreator foodCreator = new FoodCreator(78, 23, '&');
+            Point food = foodCreator.CreateFood();
+            food.Draw();
+
             while(true)
             {
-                if (Console.KeyAvailable)
+                if (snake.Eat(food))
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
-                    snake.Handlekey(key.Key);
+                    food = foodCreator.CreateFood();
+                    food.Draw();
                 }
-                Thread.Sleep(100);
-                snake.Move();
+                else
+                {
+                    snake.Move();
+                }
+
+                    Thread.Sleep(100);
+                    if (Console.KeyAvailable)
+                    {
+                        ConsoleKeyInfo key = Console.ReadKey();
+                        snake.Handlekey(key.Key);
+                    }
+                    
+                    
+                }
             }
-            
 
 
-
-
-
-
-            Thread.Sleep(100);
-            snake.Move();
-
-
-
-
-
-
-
-
-            Console.ReadLine();
         }
 
     }

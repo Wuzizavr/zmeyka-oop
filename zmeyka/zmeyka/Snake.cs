@@ -39,17 +39,31 @@ namespace zmeyka
             nextPoint.Move(1, direction);
             return nextPoint;
         }
+
         public void Handlekey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow)
+                direction = Direction.LEFT;
+            if (key == ConsoleKey.RightArrow)
+                direction = Direction.RIGHT;
+            if (key == ConsoleKey.UpArrow)
+                direction = Direction.UP;
+            if (key == ConsoleKey.DownArrow)
+                direction = Direction.DOWN;
+            }
+
+
+        internal bool Eat(Point food)
+        {
+        Point head = GetNextPosition();
+        if (head.IsHit(food))
             {
-                     if (key == ConsoleKey.LeftArrow)
-                        direction = Direction.LEFT;
-                    if (key == ConsoleKey.RightArrow)
-                        direction = Direction.RIGHT;
-                    if (key == ConsoleKey.UpArrow)
-                        direction = Direction.UP;
-                    if (key == ConsoleKey.DownArrow)
-                        direction = Direction.DOWN;
-            
+            food.sym = head.sym;
+            pList.Add(food);
+            return true;
+            }
+        else
+        return false;
     
     }
 }
